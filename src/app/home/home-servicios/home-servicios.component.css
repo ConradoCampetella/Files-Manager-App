@@ -1,0 +1,12 @@
+div.container{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+a.nav-link{
+    color: #868e96;
+}
+
+a.nav-link.active{
+    color: white;
+    background-color: lightgray;
+}

@@ -1,3 +1,21 @@
 .footer{
-    padding-top: 5px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    color: white;
+}
+img{
+    width: 100%;
+}
+
+div.links{
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.nav-link.contacto{
+    color: black;
+}
+p {
+margin-top: 0px;
+margin-bottom: 0px;
 }

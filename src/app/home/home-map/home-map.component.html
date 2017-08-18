@@ -1,0 +1,12 @@
+<agm-map 
+    [latitude]="lat" 
+    [longitude]="lng" 
+    [mapDraggable]="false"
+    [zoom]="16"
+    [zoomControl]="false"
+    [clickableIcons]="false"
+    [scrollwheel]="false" 
+    [styles] = mapStyle   
+    >
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
