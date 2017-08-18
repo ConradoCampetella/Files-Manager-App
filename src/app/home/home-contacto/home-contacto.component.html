@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <h2>Contacto</h2>
+    <hr>
+  </div>
+  <div class="row">
+    <div class="col">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="contactForm-name">Nombre</label>
+              <input type="text" class="form-control" id="contactForm-name" name="contactForm-name" formControlName="contactForm-name"
+                [ngClass]="isValid('contactForm-name')">
+              <div class="invalid-feedback" *ngIf="!contactForm.get('contactForm-name').valid && contactForm.get('contactForm-name').touched">
+                Debe ingresar su Nombre.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contactForm-lastName">Apellido</label>
+              <input type="text" class="form-control" id="contactForm-lastName" name="contactForm-lastName" formControlName="contactForm-lastName"
+                [ngClass]="isValid('contactForm-lastName')">
+              <div class="invalid-feedback" *ngIf="!contactForm.get('contactForm-lastName').valid && contactForm.get('contactForm-lastName').touched">
+                Debe ingresar su Apellido.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contactForm-email">Mail</label>
+              <input type="email" class="form-control" id="contactForm-email" name="contactForm-email" formControlName="contactForm-email"
+                [ngClass]="isValid('contactForm-email')">
+              <div class="invalid-feedback" *ngIf="contactForm.get('contactForm-email').errors['required'] && contactForm.get('contactForm-email').touched">
+                Debe ingresar su Mail.
+              </div>
+              <div class="invalid-feedback" *ngIf="contactForm.get('contactForm-email').errors['email'] && !contactForm.get('contactForm-email').errors['required'] && contactForm.get('contactForm-email').touched">
+                Por favor ingrese un mail válido.
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="contactForm-company">Empresa o Razón Social</label>
+              <input type="text" class="form-control" id="contactForm-company" name="contactForm-company" formControlName="contactForm-company"
+                [ngClass]="isValid('contactForm-company')">
+              <div class="invalid-feedback" *ngIf="!contactForm.get('contactForm-company').valid && contactForm.get('contactForm-company').touched">
+                Debe ingresar el nombre de su Empresa o Razón Social.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contactForm-phone">Tel/Cel</label>
+              <input type="number" class="form-control" id="contactForm-phone" name="contactForm-phone" formControlName="contactForm-phone"
+                [ngClass]="isValid('contactForm-phone')">
+            </div>
+            <div class="form-group">
+              <label for="contactForm-message">Mensaje</label>
+              <textarea class="form-control" id="contactForm-message" name="contactForm-message" formControlName="contactForm-message"
+                cols="30" rows="10" [ngClass]="isValid('contactForm-message')"></textarea>
+              <div class="invalid-feedback" *ngIf="!contactForm.get('contactForm-message').valid && contactForm.get('contactForm-message').touched">
+                Debe ingresar el su duda o consulta.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col text-center">
+              <button type="submit" [disabled]="!contactForm.valid" class="btn btn-success">Enviar</button>
+              <button type="reset" class="btn btn-secondary">Limpiar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <app-home-map></app-home-map>
+  </div>
