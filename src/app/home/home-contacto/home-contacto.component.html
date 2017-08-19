@@ -1,8 +1,10 @@
 <div class="container">
-  <div class="row justify-content-center">
-    <h2>Contacto</h2>
-    <hr>
+  <div class="row">
+    <div class="col">
+      <h2>Contacto</h2>
+    </div>
   </div>
+  <hr>
   <div class="row">
     <div class="col">
       <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
@@ -28,10 +30,10 @@
               <label for="contactForm-email">Mail</label>
               <input type="email" class="form-control" id="contactForm-email" name="contactForm-email" formControlName="contactForm-email"
                 [ngClass]="isValid('contactForm-email')">
-              <div class="invalid-feedback" *ngIf="contactForm.get('contactForm-email').errors['required'] && contactForm.get('contactForm-email').touched">
+              <div class="invalid-feedback" *ngIf="contactForm.get('contactForm-email').getError('required')">
                 Debe ingresar su Mail.
               </div>
-              <div class="invalid-feedback" *ngIf="contactForm.get('contactForm-email').errors['email'] && !contactForm.get('contactForm-email').errors['required'] && contactForm.get('contactForm-email').touched">
+              <div class="invalid-feedback" *ngIf="contactForm.get('contactForm-email').getError('email') && !contactForm.get('contactForm-email').getError('required')">
                 Por favor ingrese un mail válido.
               </div>
             </div>
@@ -55,15 +57,15 @@
               <textarea class="form-control" id="contactForm-message" name="contactForm-message" formControlName="contactForm-message"
                 cols="30" rows="10" [ngClass]="isValid('contactForm-message')"></textarea>
               <div class="invalid-feedback" *ngIf="!contactForm.get('contactForm-message').valid && contactForm.get('contactForm-message').touched">
-                Debe ingresar el su duda o consulta.
+                Debe ingresar su duda o consulta.
               </div>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col text-center">
-              <button type="submit" [disabled]="!contactForm.valid" class="btn btn-success">Enviar</button>
-              <button type="reset" class="btn btn-secondary">Limpiar</button>
+            <button type="submit" [disabled]="!contactForm.valid" class="btn btn-success">Enviar</button>
+            <button type="reset" class="btn btn-secondary">Limpiar</button>
           </div>
         </div>
       </form>
