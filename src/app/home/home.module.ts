@@ -22,13 +22,14 @@ import { HomeServiciosFideicomisoVentajasComponent } from './home-servicios/home
 // tslint:disable-next-line:max-line-length
 import { HomeServiciosFideicomisoClasesComponent } from './home-servicios/home-servicios-fideicomiso/home-servicios-fideicomiso-clases/home-servicios-fideicomiso-clases.component';
 import { HomeArticulosComponent } from './home-articulos/home-articulos.component';
-import { HomeClientesComponent } from './home-clientes/home-clientes.component';
 import { HomeContactoComponent } from './home-contacto/home-contacto.component';
 import { HomeMapComponent } from './home-map/home-map.component';
 import { HomeArticulosRegulacionComponent } from './home-articulos/home-articulos-regulacion/home-articulos-regulacion.component';
 // tslint:disable-next-line:max-line-length
 import { HomeArticulosPuniversitariosComponent } from './home-articulos/home-articulos-puniversitarios/home-articulos-puniversitarios.component';
 import { HomeArticulosItcComponent } from './home-articulos/home-articulos-itc/home-articulos-itc.component';
+import { HomeLoginComponent } from './home-login/home-login.component';
+
 
 @NgModule({
   imports: [
@@ -56,12 +57,12 @@ import { HomeArticulosItcComponent } from './home-articulos/home-articulos-itc/h
     HomeServiciosFideicomisoVentajasComponent,
     HomeServiciosFideicomisoClasesComponent,
     HomeArticulosComponent,
-    HomeClientesComponent,
     HomeContactoComponent,
     HomeMapComponent,
     HomeArticulosRegulacionComponent,
     HomeArticulosPuniversitariosComponent,
-    HomeArticulosItcComponent
+    HomeArticulosItcComponent,
+    HomeLoginComponent
   ]
 })
 export class HomeModule { }

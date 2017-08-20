@@ -19,8 +19,8 @@ import { HomeServiciosFideicomisoVentajasComponent } from './home-servicios/home
 // tslint:disable-next-line:max-line-length
 import { HomeServiciosFideicomisoClasesComponent } from './home-servicios/home-servicios-fideicomiso/home-servicios-fideicomiso-clases/home-servicios-fideicomiso-clases.component';
 
-import { HomeClientesComponent } from './home-clientes/home-clientes.component';
 import { HomeContactoComponent } from './home-contacto/home-contacto.component';
+import { HomeLoginComponent } from './home-login/home-login.component';
 
 import { HomeArticulosComponent } from './home-articulos/home-articulos.component';
 // tslint:disable-next-line:max-line-length
@@ -37,8 +37,8 @@ const homeRoutes: Routes = [
             { path: '', redirectTo: '/home/landing', pathMatch: 'full' },
             { path: 'landing', component: HomeLandingComponent },
             { path: 'nosotros', component: HomeNosotrosComponent },
-            { path: 'clientes', component: HomeClientesComponent },
             { path: 'contacto', component: HomeContactoComponent },
+            { path: 'login', component: HomeLoginComponent },
             {
                 path: 'articulos', component: HomeArticulosComponent, children: [
                     { path: '', redirectTo: '/home/articulos/regulacion', pathMatch: 'full' },
