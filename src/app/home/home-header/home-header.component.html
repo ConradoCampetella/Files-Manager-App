@@ -11,9 +11,6 @@
     <div [ngClass]="collapseClass()" id="navbarHeader">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li routerLinkActive="active">
-          <a class="nav-link" routerLink="/home/inicio">Inicio </a>
-        </li>
-        <li routerLinkActive="active">
           <a class="nav-link" routerLink="/home/nosotros">Nosotros</a>
         </li>
         <li routerLinkActive="active">
@@ -23,14 +20,11 @@
           <a class="nav-link" routerLink="/home/articulos">Artículos</a>
         </li>
         <li routerLinkActive="active">
-          <a class="nav-link" routerLink="/home/clientes">Clientes</a>
-        </li>
-        <li routerLinkActive="active">
           <a class="nav-link" routerLink="/home/contacto">Contacto</a>
         </li>
       </ul>
       <div class="my-2 my-lg-0">
-        <a class="btn btn-light my-2 my-sm-0" type="button">Accesso Clientes</a>
+        <a class="btn btn-light my-2 my-sm-0" role="button" routerLink="/home/login">Accesso Clientes</a>
       </div>
     </div>
   </div>
