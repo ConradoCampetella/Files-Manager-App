@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
+import { UsersService } from '../../shared/users.service';
+
 @Component({
   selector: 'app-home-login',
   templateUrl: './home-login.component.html',
@@ -8,11 +10,15 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class HomeLoginComponent implements OnInit {
   loginForm: FormGroup;
-  constructor() { }
+  spinnerVisible = false;
+  loginError = false;
+  error = '';
+
+  constructor(private usersService: UsersService) { }
 
   ngOnInit() {
     this.loginForm = new FormGroup({
-      'loginForm-email': new FormControl(null, [Validators.required, Validators.email]),
+      'loginForm-email': new FormControl(null, [Validators.required]),
       'loginForm-password': new FormControl(null, Validators.required)
     });
   }
@@ -24,6 +30,17 @@ export class HomeLoginComponent implements OnInit {
     }
   }
   onSubmit() {
-    this.loginForm.reset();
+    this.spinnerVisible = true;
+    this.loginError = false;
+    this.usersService.loginUser(this.loginForm.get('loginForm-email').value, this.loginForm.get('loginForm-password').value)
+      .subscribe(
+      (res) => {
+        this.spinnerVisible = false;
+      },
+      (err) => {
+        this.spinnerVisible = false;
+        this.loginError = true;
+        this.error = err;
+      });
   }
 }

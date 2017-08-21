@@ -1,0 +1,22 @@
+<nav class="navbar fix-top navbar-expand-lg navbar-dark bg-secondary">
+  <div class="container">
+
+    <a class="navbar-brand" routerLink="/user/index">
+      P & S
+    </a>
+    <button [ngClass]="togglerClass()" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader"
+      [attr.aria-expanded]="ariaExpanded" aria-label="Toggle navigation" (click)="navClicked()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div [ngClass]="collapseClass()" id="navbarHeader">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li routerLinkActive="active">
+          <a class="nav-link" routerLink="/user/index">Inicio</a>
+        </li>
+      </ul>
+      <div class="my-2 my-lg-0">
+        <a class="btn btn-danger my-2 my-sm-0" role="button" routerLink="/user/index">Cerrar Sesión</a>
+      </div>
+    </div>
+  </div>
+</nav>
