@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Bienvenido {{username}}</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <ul>
+        <li *ngFor="let file of folderFiles">{{file}}</li>
+      </ul>
+      <button class="btn btn-success" (click)="onDownload()">Descargar</button>
+      <div *ngIf="blob">{{blob}}</div>
+    </div>
+  </div>
+</div>

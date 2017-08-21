@@ -10,14 +10,14 @@
           <br>
           <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
-              <label for="loginForm-email">Email</label>
-              <input type="email" class="form-control" id="loginForm-email" name="loginForm-email" formControlName="loginForm-email" [ngClass]="isValid('loginForm-email')">
+              <label for="loginForm-email">Usuario</label>
+              <input type="text" class="form-control" id="loginForm-email" name="loginForm-email" formControlName="loginForm-email" [ngClass]="isValid('loginForm-email')">
               <div class="invalid-feedback" *ngIf="loginForm.get('loginForm-email').getError('required')">
-                Debe ingresar su Mail.
+                Debe ingresar su Usuario.
               </div>
-              <div class="invalid-feedback" *ngIf="loginForm.get('loginForm-email').getError('email') && !loginForm.get('loginForm-email').getError('required')">
+           <!--   <div class="invalid-feedback" *ngIf="loginForm.get('loginForm-email').getError('email') && !loginForm.get('loginForm-email').getError('required')">
                 Por favor ingrese un mail válido.
-              </div>
+              </div> -->
             </div>
             <div class="form-group">
               <label for="loginForm-password">Contraseña</label>
@@ -28,6 +28,12 @@
               </div>
             </div>
             <br>
+            <div *ngIf="loginError" class="alert alert-danger" role="alert">
+              {{error}}
+            </div>
+            <div *ngIf="spinnerVisible" class="spinner">
+              <app-little-spinner></app-little-spinner>
+            </div>
             <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Enviar</button>
             <button type="reset" class="btn btn-secondary">Limpiar</button>
           </form>
