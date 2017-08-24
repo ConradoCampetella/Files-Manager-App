@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>
+          Balances
+        </h2>
+        <hr>
+      </div>
+    </div>
+    <div class="row" *ngIf = "spinnerVisible">
+        <app-little-spinner></app-little-spinner>
+    </div>
+    <div class="row">
+      <div class="col">
+        <table class="table table-bordered table-hover">
+          <tr class="table-light">
+            <th>Balances</th>
+            <th>Descargar</th>
+          </tr>
+          <tr *ngFor="let balance of balancesList">
+            <td> {{balance}}</td>
+            <td><button type="button" class="btn btn-outline-primary" (click)="onDonload(balance)">  Descargar</button></td>
+          </tr>  
+        </table>
+      </div>
+    </div>
+  </div> 

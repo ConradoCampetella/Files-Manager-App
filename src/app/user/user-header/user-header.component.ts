@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsersService } from '../../shared/users.service';
 
 @Component({
   selector: 'app-user-header',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserHeaderComponent implements OnInit {
   ariaExpanded = false;
-  constructor() { }
+
+  constructor(private usersService: UsersService) { }
 
   ngOnInit() {
   }
@@ -29,6 +31,9 @@ export class UserHeaderComponent implements OnInit {
     } else {
       return 'navbar-collapse collapse';
     }
+  }
+  logOut() {
+    this.usersService.logoutUser();
   }
 
 }

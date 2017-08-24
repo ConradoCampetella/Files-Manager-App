@@ -2,15 +2,67 @@
   <div class="row">
     <div class="col">
       <h2>Bienvenido {{username}}</h2>
+      <hr>
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <ul>
-        <li *ngFor="let file of folderFiles">{{file}}</li>
-      </ul>
-      <button class="btn btn-success" (click)="onDownload()">Descargar</button>
-      <div *ngIf="blob">{{blob}}</div>
+      <div class="card border-light mb-3" style="max-width: 20rem;">
+        <div class="card-header">Acta</div>
+        <div class="card-body">
+          <h4 class="card-title">{{actasLast}}</h4>
+          <button type="button" class="btn btn-outline-primary" (click)="onDonload('actas', actasLast)">  Descargar</button>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card border-light mb-3" style="max-width: 20rem;">
+        <div class="card-header">Balances</div>
+        <div class="card-body">
+          <h4 class="card-title">{{balancesLast}}</h4>
+          <button type="button" class="btn btn-outline-primary" (click)="onDonload('balances', balancesLast)">  Descargar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card border-light mb-3" style="max-width: 20rem;">
+        <div class="card-header">Ganancias</div>
+        <div class="card-body">
+          <h4 class="card-title">{{gananciasLast}}</h4>
+          <button type="button" class="btn btn-outline-primary" (click)="onDonload('ganancias', gananciasLast)">  Descargar</button>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card border-light mb-3" style="max-width: 20rem;">
+        <div class="card-header">Ingresos Brutos</div>
+        <div class="card-body">
+          <h4 class="card-title">{{iibbLast}}</h4>
+          <button type="button" class="btn btn-outline-primary" (click)="onDonload('ingresos_brutos', iibbLast)">  Descargar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div class="card border-light mb-3" style="max-width: 20rem;">
+        <div class="card-header">I.V.A</div>
+        <div class="card-body">
+          <h4 class="card-title">{{ivaLast}}</h4>
+          <button type="button" class="btn btn-outline-primary" (click)="onDonload('iva', ivaLast)">  Descargar</button>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card border-light mb-3" style="max-width: 20rem;">
+        <div class="card-header">Inscripciones</div>
+        <div class="card-body">
+          <h4 class="card-title">{{inscripcionesLast}}</h4>
+          <button type="button" class="btn btn-outline-primary" (click)="onDonload('inscripciones', inscripcionesLast)">  Descargar</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
