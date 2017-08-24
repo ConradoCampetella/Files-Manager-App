@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <h2>
+          Ingresos Brutos
+        </h2>
+        <hr>
+      </div>
+    </div>
+    <div class="row" *ngIf = "spinnerVisible">
+        <app-little-spinner></app-little-spinner>
+    </div>
+    <div class="row">
+      <div class="col">
+        <table class="table table-bordered table-hover">
+          <tr class="table-light">
+            <th>Ingresos Brutos</th>
+            <th>Descargar</th>
+          </tr>
+          <tr *ngFor="let iibb of iibbList">
+            <td> {{iibb}}</td>
+            <td><button type="button" class="btn btn-outline-primary" (click)="onDonload(iibb)">  Descargar</button></td>
+          </tr>  
+        </table>
+      </div>
+    </div>
+  </div> 

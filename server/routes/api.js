@@ -22,7 +22,7 @@ var APIRoutes = function (passport) {
     router.get('/folder', passport.authenticate('jwt', { session: false }), allowOnly(config.accessLevels.user, FolderController.list));
 
     //GET Downloaf File
-    router.get('/download/:folder/:file', passport.authenticate('jwt', { session: false }), allowOnly(config.accessLevels.user, FolderController.files));
+    router.post('/file', passport.authenticate('jwt', { session: false }), allowOnly(config.accessLevels.user, FolderController.files));
     return router;
 };
 

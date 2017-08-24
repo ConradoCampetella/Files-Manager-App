@@ -7,12 +7,21 @@ import { Observer } from 'rxjs/Observer';
 
 import { User } from './user.model';
 
+
 @Injectable()
 
 export class UsersService {
     user: User = new User('', 0, '');
 
-    constructor(private router: Router, private http: Http) { }
+    constructor(private router: Router, private http: Http) {
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (currentUser) {
+            this.user.username = currentUser.username;
+            this.user.token = currentUser.token;
+            this.user.role = currentUser.role;
+        }
+
+    }
 
     loginUser(username: string, password: string) {
         const lUser = Observable.create((observer: Observer<string>) => {
@@ -28,9 +37,12 @@ export class UsersService {
                         this.user.username = username;
                         this.user.role = resp.role;
                         this.user.token = resp.token;
-                        // creating a cookie
-                        const expires = new Date();
-                        expires.setTime(expires.getTime() + (30 * 60 * 1000));
+                        // creating a local Storage
+                        localStorage.setItem('currentUser', JSON.stringify({
+                            username: this.user.username,
+                            token: this.user.token,
+                            role: this.user.role
+                        }));
                         observer.next(resp.success);
                         // see that later with angular universal
                         // redirecting
@@ -46,5 +58,11 @@ export class UsersService {
                 });
         });
         return lUser;
+    }
+    logoutUser(): void {
+        // clear token remove user from local storage to log user out
+        this.user = new User('', 0, '');
+        localStorage.removeItem('currentUser');
+        this.router.navigate(['/home']);
     }
 }

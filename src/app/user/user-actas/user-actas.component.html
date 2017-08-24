@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>
+        Actas
+      </h2>
+      <hr>
+    </div>
+  </div>
+  <div class="row" *ngIf = "spinnerVisible">
+      <app-little-spinner></app-little-spinner>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table table-bordered table-hover">
+        <tr class="table-light">
+          <th>Actas</th>
+          <th>Descargar</th>
+        </tr>
+        <tr *ngFor="let acta of actasList">
+          <td> {{acta}}</td>
+          <td><button type="button" class="btn btn-outline-primary" (click)="onDonload(acta)">  Descargar</button></td>
+        </tr>  
+      </table>
+    </div>
+  </div>
+</div> 

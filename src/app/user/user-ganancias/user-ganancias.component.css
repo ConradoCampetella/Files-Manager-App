@@ -1,0 +1,9 @@
+img.pdf {
+    height: 60px;
+    width: auto;
+}
+.container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 70vh;
+}

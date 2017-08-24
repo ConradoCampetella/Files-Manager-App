@@ -8,6 +8,7 @@ var FolderController = {
     list: function (req, res) {
         var folderList = [];
         dir.files('./downloads/' + req.user.username, (error, files) => {
+            
             console.log(files);
             folderList = files;
             res.status(200).json({ folderList: files });
@@ -16,10 +17,10 @@ var FolderController = {
     },
 
     files: function (req, res) {
-        var fileUrl = req.url.replace('/download', '');
-        console.log(fileUrl);
-        console.log(path.join(__dirname +'/../../downloads/'+req.user.username+'/'+ fileUrl));
-        res.sendFile(path.join(__dirname +'/../../downloads/'+req.user.username+'/'+ fileUrl));
+        var directory = req.body.directory;
+        var fileName = req.body.fileName;
+        console.log(path.join(__dirname +'/../../downloads/'+req.user.username+'/'+ directory+'/'+fileName));
+        res.sendFile(path.join(__dirname +'/../../downloads/'+req.user.username+'/'+ directory+'/'+fileName));
     }
 };
 
